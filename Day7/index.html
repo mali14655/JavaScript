@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- tell the browser that this is HTML5 document -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- tell broswer to use this encoding system while decoding the bytes  -->
+    <!-- <meta name="viewsport" content="width=device-width, initial-scale=1.5"> -->
+    <!-- This tag tells mobile browsers:
+"Use the actual width of the device screen" instead of assuming a default 980px wide viewport. -->
+    <!-- responsiveness enables only -->
+    <!-- it is for mobile phones only as in mobile phones the browser pretends the width to be 980px so the media queries does not work there then if less than 980px is use -->
+    <title>Document</title>
+    <!-- <style>
+      @media only screen and (max-width: 600px) {
+        body {
+          background-color: lightblue;
+        }
+      }
+    </style> -->
+    <script src="check.js" defer></script>
+    <script src="app.js" defer></script>
+    <!-- defer still maintian the orer in which the files are written here in the html file and thus will run check.js first no matter what -->
+    <!-- // download in parrallel but execute only when browser parse the html(Recommended when interacting with dom) -->
+
+    <!-- <script src="app.js" async ></script> 
+      download in parrallel but execute as soon as it is ready (use it when it is not interacting with Dom) -->
+  </head>
+  hello
+  <!-- browser move it inside the body when parsing as browser consider it as a mistake and tries to recover it-> see docemnt in console -->
+  <body>
+    <!-- <h1>❤️</h1> -->
+    <h1>Hello</h1>
+
+    <!-- <script src="app.js" ></script> // Default Method before the defer and block the html parsing.  -->
+  </body>
+</html>
