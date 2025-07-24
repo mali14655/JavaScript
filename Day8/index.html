@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOM Practice Playground</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-heading">Welcome to DOM World 🌍</h1>
+
+  <p class="description">This is a practice area to learn JavaScript DOM manipulation.</p>
+
+  <div class="container">
+    <div class="card" id="card1">
+      <h3 class="card-title">Card 1</h3>
+      <p class="card-text">This is the first card.</p>
+      <p class="card-text">This is the first card.</p>
+      <button class="btn edit-btn">Edit</button>
+      <button class="btn delete-btn">Delete</button>
+    </div>
+    <div class="card" id="card2">
+      <h3 class="card-title">Card 2</h3>
+      <p class="card-text">This is the second card.</p>
+      <button class="btn edit-btn">Edit</button>
+      <button class="btn delete-btn">Delete</button>
+    </div>
+
+    <div class="card" id="card3">
+      <h3 class="card-title">Card 3</h3>
+      <p class="card-text">This is the third card.</p>
+      <button class="btn edit-btn">Edit</button>
+      <button class="btn delete-btn">Delete</button>
+    </div>
+  </div>
+
+  <form id="add-form">
+    <input type="text" id="new-title" name="title" placeholder="Card Title" />
+    <input type="text" id="new-text"  name="text" placeholder="Card Text" />
+    <button type="submit">Add Card</button>
+  </form>
+
+  <div class="hi">
+    hi
+    <span>hello</span>
+  </div>
+  <script src="app.js" ></script>
+</body>
+</html>
