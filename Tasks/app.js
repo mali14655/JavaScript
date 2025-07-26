@@ -256,14 +256,45 @@ function DisplayingQuestions() {
 
 // capturing -> event propagation
 
-window.addEventListener("click",(e)=>{
-    console.log("window",e.clientX)
-},{
-    capture:true
+// window.addEventListener("click",(e)=>{
+//     console.log("window",e.clientX)
+// },{
+//     capture:true
+// })
+
+// document.addEventListener("click",(e)=>{
+//     console.log("document",e.clientX)
+// },{
+//   capture:true
+// })
+
+
+// 11
+let width=0;
+let viewportWidth=window.innerWidth;
+let lastScrollTop = window.scrollY;
+
+window.addEventListener("scrollend",()=>{
+  let pageHeight=document.documentElement.scrollHeight; // total page height
+  let newWidth;
+  let currentScrollH=window.scrollY; // only the scrolled part 
+  let totalscrolledandVisible=currentScrollH+window.innerHeight;
+  if(currentScrollH>lastScrollTop){
+    newWidth=((viewportWidth*totalscrolledandVisible)/pageHeight);
+    console.log(newWidth)
+    console.log(viewportWidth)
+    document.querySelector(".div").style.width=newWidth+"px";
+    lastScrollTop=currentScrollH
+  }
+  else if(currentScrollH<lastScrollTop && currentScrollH!=0){
+    newWidth=(viewportWidth*totalscrolledandVisible)/pageHeight;
+    document.querySelector(".div").style.width=newWidth+"px";
+  }
+  else if(currentScrollH==0){
+    newWidth=0
+    document.querySelector(".div").style.width=newWidth+"px";
+  }
+  // console.log(window.scrollY)
 })
 
-document.addEventListener("click",(e)=>{
-    console.log("document",e.clientX)
-},{
-  capture:true
-})
+// how to get the exact height of scroll position
