@@ -361,3 +361,57 @@ function Data4(id){
 // }
 
 // fetchDataS();
+
+
+// ****************************************using fetch in async/await ad promise chaining***************
+
+
+// fetch("https://api.github.com/users")
+// .then((response)=>{
+//     return response.json()
+// })
+// .then((data)=>{
+//     console.log(data)
+// })
+// .catch((err)=>{
+//     console.log(err)
+// })
+// .finally(()=>{
+//     console.log("Finally promise is resolved/rejectd")
+// })
+
+//******************* */ inside a fucntion
+function fetchUser(){
+
+    fetch("https://api.github.com/users")
+    .then((response)=>{
+        return response.json()
+})
+.then((data)=>{
+    console.log(data)
+})
+.catch((err)=>{
+    console.log(err)
+})
+.finally(()=>{
+    console.log("Finally promise is resolved/rejectd")
+})
+}
+// fetchUser()
+
+// OR
+
+
+async function fetchUserData() {
+    try {
+        let response= await fetch("https://api.github.com/users")
+        let data= await response.json();
+        console.log(data)
+        // finally block things can be written here
+    } catch (error) {
+        console.log(error)
+    }
+    
+}
+
+fetchUserData()
