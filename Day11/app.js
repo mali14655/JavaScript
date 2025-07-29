@@ -1,5 +1,10 @@
-// Understandig how does the api request was sent before Ajax and then how AJAX come to play and then what is XMLHttpRequest and then fetch and Understandig callbackhell, PromiseChaining and async/await
-
+/* Understandig how does the api request was sent before Ajax and then
+    how AJAX come to play and then what is XMLHttpRequest and then fetch and
+    Understandig callbackhell, PromiseChaining and async/await and fetch get
+    in details with headers,method,query params, signal,mode,accept in
+    headers-> and backend for this fetch as well,
+    fetch get with headers and others options
+    fetch post with all type of data like formdata,urlencoded data and json data
 // step 1
 // this code is for backend to receive tradition request before ajax through form
 // form is in indexed.html
