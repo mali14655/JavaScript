@@ -4,7 +4,7 @@
     in details with headers,method,query params, signal,mode,accept in
     headers-> and backend for this fetch as well,
     fetch get with headers and others options
-    fetch post with all type of data like formdata,urlencoded data and json data
+    fetch post with all type of data like formdata,urlencoded data and json data */
 // step 1
 // this code is for backend to receive tradition request before ajax through form
 // form is in indexed.html
@@ -31,7 +31,7 @@
   //     }) -->
 }
 
-//************************************/ what is AJAX
+// ************************************ what is AJAX
 
 // Then AJAX come after the traditional way of sending request :->
 // A way to send request to server asynchronusly and without the page reload-> thats why it as called ajax and we now use json as data format but still it is called ajaxx just becasue of the way sedning request
