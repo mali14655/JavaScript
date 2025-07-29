@@ -49,7 +49,7 @@
 let xhr = new XMLHttpRequest(); // we make a new object that will be use to send request state 0
 // This object lets the browser send HTTP requests asynchronously (without reloading the page).
 
-// let username="mali14655"
+let username="mali14655"
 xhr.open("GET", `https://api.github.com/users/${username}`); // opened  state 1
 // open(method, url,true/false) prepares the request. false for synchronus request
 // Doesn’t send it yet—just sets it up.
@@ -499,38 +499,191 @@ function Data4(id) {
 
 // 2
 
-let controller=new AbortController(); // to cancel asynchronus operations
-console.log(controller.signal)
-setTimeout(() => {
-    controller.abort("As it is taking too much time") // with custom message
-}, 3000);
+// let controller=new AbortController(); // to cancel asynchronus operations
+// console.log(controller.signal)
+// setTimeout(() => {
+//     controller.abort("As it is taking too much time") // with custom message
+// }, 3000);
 
-setTimeout(()=>{
- fetch("http://localhost:3000/api/get/users?name=ali",{
-     headers:{
-        Accept:"application/json", // i am expecting this from backend
-    },
-    // mode:"same-origin", // tell the broswer to only send request to same origin
-    mode:"cors", // to allow send request to cross origin
-    signal:controller.signal , // to cancel request
- })
- .then((res)=>{
+// setTimeout(()=>{
+//  fetch("http://localhost:3000/api/get/users?name=ali",{
+//      headers:{
+//         Accept:"application/json", // i am expecting this from backend
+//     },
+//     // mode:"same-origin", // tell the broswer to only send request to same origin
+//     mode:"cors", // to allow send request to cross origin
+//     signal:controller.signal , // to cancel request
+//  })
+//  .then((res)=>{
+//     if(!res.ok){
+//         throw new Error("Something went wrong "+ res.status);
+//     }
+//     else{
+//         return res.json()
+//     }
+//  })
+//  .then((data)=>{
+//     console.log(data)
+//  })
+//  .catch((err)=>{
+//     if(err instanceof TypeError){
+//         console.log("Network Error", err.message)
+//     }
+//     else{
+//         console.log(err)
+//     }
+//  })
+// },5000)
+
+
+// If you only want to edit the commit message:
+// git commit --amend
+// VIM
+// Vim (short for Vi IMproved) is a powerful, keyboard-driven text editor that's built into almost every Unix/Linux system (and even Git on Windows).
+// :wq write and quite -> mean save
+// :q! quit without saving
+
+// to change default editor to vs code
+// git config --global core.editor "code --wait"
+
+
+// If you want to undo the commit entirely (keep the changes staged):
+// git reset --soft HEAD~1
+
+// If you want to undo the commit and unstage the changes (but keep code):
+// git reset --mixed HEAD~1
+
+// If you want to undo the commit and remove all changes (be careful):
+// git reset --hard HEAD~1
+
+
+// POST request 
+
+// function PostData(){
+//   fetch("http://localhost:3000/api/post/user",{
+//     method:"POST",
+//     headers:{
+//      'Content-type':"application/json" 
+//     },
+//     body:JSON.stringify({
+//       username:"Ali123",
+//       email:"ali@gmail.com"
+//     }),
+//     // mode:"same-origin", // testing
+//     redirect:"error",   // testing
+//   })
+//   .then((res)=>{
+//     console.log(res)
+//     if(!res.ok){
+//       throw new Error("Something went wrong "+res.status);
+//     }
+//     return res.json()
+//   })
+//   .then((data)=>{
+//     console.log(data.message)
+//   })
+//   .catch((error)=>{
+//     if(error instanceof TypeError){
+//       console.log("Network error",error)
+
+//     }
+//     else{
+//       console.log(error)
+//     }
+//   })
+// }
+
+// PostData()
+
+
+// Url encoded data
+
+// const data = new URLSearchParams();
+// data.append("name", "Ali");
+// data.append("age", "25");
+// // console.log(data.get("name"));
+// // console.log(data.toString())// urlencoded
+// function PostUrlData(){
+//   fetch("http://localhost:3000/api/post/urlencoded",{
+//     method:"POST",
+//     headers:{
+//           "Content-Type": "application/x-www-form-urlencoded"
+//     },
+//     body:data.toString()
+//   })
+//   .then((res)=>{
+//     if(!res.ok){
+//       throw new Error("Reqesut reacehd the server but something went wrong "+res.status);
+//     }
+//     else{
+//       return res.json()
+//     }
+//   })
+//   .then((data)=>{
+//     console.log(data.message)
+//   })
+//   .catch((err)=>{
+//     if(err instanceof TypeError){
+//       console.log("Network issue ", err)
+//     }
+//     else{
+//       console.log(err)
+//     }
+//   })
+// }
+// PostUrlData();
+
+
+// posting FormData
+
+// let form=document.querySelector("#form")
+// form.addEventListener("submit",(e)=>{
+//   e.preventDefault();
+//   let data=new FormData(e.target);
+//   fetch("http://localhost:3000/api/post/simple-formdata",{
+//     method:"POST",
+//     headers:{
+//       // "content-type":"multipart/form-data" // should not be set manually, browser sets it itself
+//     },
+//     body:data
+//   })
+//   .then((res)=>{
+//     if(!res.ok){
+//       throw new  Error("Request reacjed the server but something went wrong "+res.status);
+//     }
+//     else{
+//       return res.json()
+//     }
+//   })
+//   .then((data)=>{
+//     console.log(data.message)
+//   })
+//   .catch((err)=>{
+//     console.log(err)
+//   })
+// })
+
+// 
+let form2=document.querySelector("#form2")
+form2.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  let data=new FormData(e.target);
+  fetch("http://localhost:3000/api/post/singleFile-formdata",{
+    method:"POST",
+    body:data
+  })
+  .then((res)=>{
     if(!res.ok){
-        throw new Error("Something went wrong "+ res.status);
+      throw new  Error("Request reacjed the server but something went wrong "+res.status);
     }
     else{
-        return res.json()
+      return res.json()
     }
- })
- .then((data)=>{
-    console.log(data)
- })
- .catch((err)=>{
-    if(err instanceof TypeError){
-        console.log("Network Error", err.message)
-    }
-    else{
-        console.log(err)
-    }
- })
-},5000)
+  })
+  .then((data)=>{
+    console.log(data.message)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+})

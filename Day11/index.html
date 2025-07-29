@@ -21,10 +21,31 @@ That entire new page is sent back to the browser and replaces the previous page.
 
     
 
-    <form id="fetchForm">
+    <!-- <form id="fetchForm">
         <input type="text" name="username" id="username">
         <input type="number" name="number" id="number">
         <input type="submit" value="Submit" name="" id="">
+    </form> -->
+
+    <!-- sending data direclty from form and it becomes url-encoded directly; -->
+    <!-- <form  method="post" action="http://localhost:3000/api/post/form">
+        <input type="text" name="username" id="">
+        <input type="submit" value="submit" id="">
+    </form> -->
+
+
+    <!-- posting form data -->
+     <!-- only text fields -->
+    <!-- <form id="form" >
+        <input type="text" name="username" >
+        <input type="submit" value="Submit" >
+    </form> -->
+
+    <!-- sending single file -->
+    <form id="form2" >
+        <input type="text" name="username" >
+        <input type="file" name="userimage" >
+        <input type="submit" value="Submit" >
     </form>
     <script src="app.js"></script>
 <script>
