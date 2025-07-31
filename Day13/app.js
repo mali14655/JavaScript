@@ -32,28 +32,63 @@
 //the Parent of every object is Object.prototype-> an object which has methods
 // and Object itself is a constructor funtion actually so it has the prototype property which every constructor function have which has all its properties, methods and a [[Prototype]] property which points toward the Object.prototype
 
-let object={
-    username:"ali",
+// let object={
+//     username:"ali",
+// }
+
+// // adding to object[[prototype]]-> actually here the Object.prototype
+
+// object.__proto__.greet=function(){
+//     console.log(this.username)
+// }
+// console.log(Object.prototype)  // greet added here
+// console.log(object)   
+
+
+// function Person(name){
+//     this.name=name;
+// }
+
+// console.log(Person.prototype.hello=function(){
+//     console.log("hi")
+// })
+
+// console.log(Person.prototype) //-> Object which will be the parent of the next child that will inherit from this object
+
+// let ali=new Person("ali")
+// console.log(ali.__proto__)  // will be Person.prototype which has its properties and methods as well [[prototype]]-> reefernece to Object.protoype
+
+
+// section 2
+
+// classes in js-> not true classes but it is actually syntactic sugar over the constructor functions
+// A class is just a nicer syntax to create a constructor function and set up the prototype chain.
+
+// for example
+
+class Car{
+    constructor(name){
+        this.name=name
+        }
+    break(){
+        console.log("Break")
+    }
 }
 
-// adding to object[[prototype]]-> actually here the Object.prototype
+const HondaCity=new Car("HondaCity");
 
-object.__proto__.greet=function(){
-    console.log(this.username)
-}
-console.log(Object.prototype)  // greet added here
-console.log(object)   
-
-
-function Person(name){
+// same as this
+function CarX(name){
     this.name=name;
 }
 
-console.log(Person.prototype.hello=function(){
-    console.log("hi")
-})
+CarX.prototype.break=function(){
+    console.log("Break Please!")
+}
 
-console.log(Person.prototype) //-> Object which will be the parent of the next child that will inherit from this object
+const Vezel=new CarX("Vezel");
 
-let ali=new Person("ali")
-console.log(ali.__proto__)  // will be Person.prototype which has its properties and methods as well [[prototype]]-> reefernece to Object.protoype
+console.log(HondaCity)
+console.log(Vezel
+
+)
