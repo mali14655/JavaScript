@@ -10,7 +10,7 @@
 
 // normal object creation
 // const obj = {};
-// obj.__proto__ ---> Object.prypotote ---> null
+// obj.__proto__ ---> Object.propotote ---> null
 
 
 // object creation through constructor funtion
@@ -71,7 +71,7 @@ class Car{
         this.name=name
         }
     break(){
-        console.log("Break")
+        console.log("Break"+" "+this.name)
     }
 }
 
@@ -82,13 +82,89 @@ function CarX(name){
     this.name=name;
 }
 
+// injecting my own functionalty  
 CarX.prototype.break=function(){
-    console.log("Break Please!")
+    console.log(`Break Please! ${this.name}`)
 }
 
 const Vezel=new CarX("Vezel");
 
 console.log(HondaCity)
-console.log(Vezel
+console.log(HondaCity.break())
+console.log(Vezel.break());
 
-)
+
+
+
+// all functions/ constructor fucntion(Arrays,Objects,Date) etc have a property called prototype which is an object that it will provide to the objects that will be inherited from it and there we have [[prototype]] which is accessed by  .__proto__
+
+// If we see Array.prototype
+// then it is an object haing some array methods and reference to Object.prototype
+console.log(Array.prototype) //
+
+const obj={};
+console.log(Object.getPrototypeOf(obj)) // to get its prototype or
+console.log(obj.__proto__) 
+
+//an o/bject having no prototype    
+const object=Object.create(null)
+console.log(object) // have no 
+
+
+
+
+
+
+
+
+
+
+// setting prototype of an Object
+
+let Teacher={
+    userName:"Ali",
+    greet(){
+        console.log(`Welcome ${this.userName}`)
+    }
+}
+
+//(1) one way to set prototype
+let student={
+    userName:"Asim",
+    __proto__:Teacher,
+}
+console.log(student)
+student.greet();
+//(2) another way
+let newStudent={
+    userName:"asheesh"
+}
+
+Object.setPrototypeOf(newStudent,Teacher)
+console.log(newStudent.greet()) 
+
+// (3) another way
+let newnewStudent=Object.create(Teacher);
+newnewStudent.userName="hitesh"
+console.log(newnewStudent)
+newnewStudent.greet();
+
+// (4) another way
+let xyzStudent={
+    userName:"XYZ"
+}
+
+xyzStudent.__proto__=Teacher
+console.log(xyzStudent)
+
+// injecting own function
+xyzStudent.__proto__.getName=function(){
+    console.log(this.userName)
+}
+Teacher.getName();
+xyzStudent.getName()
+student.getName();
+newStudent.getName()
+newnewStudent.getName()
+
+
