@@ -153,3 +153,15 @@ const userOne=new User("ali",25)
 const userTwo=new User("asim",26)
 console.log(userOne,userTwo)
 
+
+
+// what does new mean
+
+// when we sue new
+// (1) new creates a new object on heap and return its reference
+// (2) link a prototype to the object -> new object created gets linked to the prototype property of the constructor function 
+// (3) the constructor function is called with arguments and when there is no explicit return value in the constructor function js assumes (this) the newly creatd object to be return value 
+
+
+
+
