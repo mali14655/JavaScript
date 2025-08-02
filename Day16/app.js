@@ -71,23 +71,49 @@ console.log(admin)
 // Getter and Setter
 // get and set before the methods-> get value and set values of properties
 
-class xyz{
-    constructor(username){
-        this.username=username
+// class user{
+//     constructor(name){
+//         this.name=name
+//     }
+
+//     get name(){
+//         return this.name
+//     }
+//     set name(value){
+//         this.name=value
+//     }
+// }
+
+// let ali= new user("ali")
+// console.log(ali)
+
+// till here it works good
+// but when we call set or get
+// for example
+// console.log(ali.name) // will call itsekf again and again and call stack will overflow
+// ali.name="asim" // same case
+
+
+class user{
+    constructor(name){
+        this._name=name
     }
-    get getUserName(){
-        return this.username
+    
+    get name(){
+        return this._name
     }
-    set setUserName(username){
-        this.username=username
+    set name(value){
+        this._name = value;
     }
 }
 
-const abc= new xyz("abc")
-console.log(abc.username)
-console.log(abc.getUserName)
-abc.setUserName="Ahmad"
-console.log(abc.getUserName)
+let ali= new user("ali")
+console.log(ali)
+// so user _before property
+console.log(ali.name) // work proper
+ali.name="asim" 
+console.log(ali)
+
 
 
 
